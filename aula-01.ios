@@ -1,0 +1,74 @@
+!Configuração do Primeiro Switch do Lado Esquerdo
+!entrando no modo enable
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+        !alterando o nome do switch
+        hostname sw-01
+        !habilitando o serviço da criptografia de senha
+        service password-encryption
+        !habilitando o serviço de log com data e hora
+        service timestamps log datetime msec
+        !desabilitando a resolução de nomes de domínio
+        no ip domain-lookup
+        !habilitando a senha no modo enable
+        enable secret 123@senac
+        !habilitando o baner da mensagem do dia
+        banner motd #AVISO: acesso autorizado somente a funcionarios#
+        !criando o usuário admin dos switch
+        username admin password 123@senac
+        !acessando a linha de console
+        line console 0
+            !habilitando o login local de usuário
+            login local
+            !habilitando o sincronismo de log
+            logging synchronous 
+            !habilitando a senha password do console
+            password 123@senac
+            !habilitando o tempo de inatividade do console
+            exec-timeout 5 30
+            !saindo de todos os modos
+            end
+    !salvando as informações da memória RAM para a NVRAM
+    copy running-config startup-config
+
+    !verificando as informações da memório RAM
+    show running-config
+==================================================================================
+
+!Configuração do Segundo Switch do Lado Esquerdo
+!entrando no modo enable
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+        !alterando o nome do switch
+        hostname sw-02
+        !habilitando o serviço da criptografia de senha
+        service password-encryption
+        !habilitando o serviço de log com data e hora
+        service timestamps log datetime msec
+        !desabilitando a resolução de nomes de domínio
+        no ip domain-lookup
+        !habilitando a senha no modo enable
+        enable secret 123@senac
+        !habilitando o baner da mensagem do dia
+        banner motd #AVISO: acesso autorizado somente a funcionarios#
+        !criando o usuário admin dos switch
+        username admin password 123@senac
+        !acessando a linha de console
+        line console 0
+            !habilitando o login local de usuário
+            login local
+            !habilitando o sincronismo de log
+            logging synchronous 
+            !habilitando a senha password do console
+            password 123@senac
+            !habilitando o tempo de inatividade do console
+            exec-timeout 5 30
+            !saindo de todos os modos
+            end
+    !salvando as informações da memória RAM para a NVRAM
+    copy running-config startup-config
+
+    !verificando as informações do da memório RAM
+    show running-config
